@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model User {
+  id             Int       @id @default(autoincrement())
+  name           String
+  surname        String
+  profilePicture String?
+  gender         String?
+  email          String
+  phoneNumber    String?
+  tcNumber       String
+  age            Int
+  password       String
+  balance        Float
+  referenceCode  String
+  preference     String?
+  createDate     DateTime @default(now())
+  updateDate     DateTime @updatedAt
+  deleteDate     DateTime?
+  sponsor        User?    @relation("Sponsor", fields: [sponsorId], references: [id])
+  sponsorId      Int?
+  pastOrders     Order[]  @relation("Owner", fields: [id], references: [ownerId])
+  currentOrder   Order?
+  saleAccount    SaleAccount?
+}
+
+model Order {
+  id           Int       @id @default(autoincrement())
+  owner        User      @relation("Owner", fields: [ownerId], references: [id])
+  ownerId      Int
+  products     Product[]
+  sendingFirm  String
+  followNumber String
+  locationToSend String
+  price        Float
+  createDate   DateTime @default(now())
+  arriveDate   DateTime?
+}
+
+model Product {
+  id               Int      @id @default(autoincrement())
+  name             String
+  price            Float
+  description      String?
+  stock            Int
+  point1           String?
+  point2           String?
+  point3           String?
+  photos           String[]
+  video            String?
+  usedShippingFirm String?
+  stars            Int
+  comments         String[]
+  popularity       Int
+  gender           String
+  categories       Category[]
+  sizes            Int[]
+  attributes       Json[]
+}
+
+model Category {
+  id         Int     @id @default(autoincrement())
+  name       String
+  attributes Json[]
+}
+
+model SaleAccount {
+  id                  Int           @id @default(autoincrement())
+  soldProducts        Product[]
+  invitedPeople1      User[]
+  invitedPeople2      User[]
+  invitedPeople3      User[]
+  invitedPeople4      User[]
+  invitedPeople5      User[]
+  invitedPeople6      User[]
+  sponsor             User?         @relation("Sponsor", fields: [sponsorId], references: [id])
+  sponsorId           Int?
+  balance             Float
+  level               Int
+  bonuses             Json[]
+  rewards             Json[]
+  rank                String
+  missions            Json[]
+  questionMissions    Json[]
+  answersOfMissions   Json[]
+  status              String
+  referralLink        String
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+  deletedAt           DateTime?
+}
+
