@@ -15,12 +15,12 @@ jobs:
         mkdir -p '${{ github.workspace }}/.kube' \
           && echo '${{ secrets.KubeConfigDev}}' | base64 -d > $KUBECONFIG
 
-    - run: 'docker build -t lykosis-admin-nextjs .'
+    - run: 'docker build -t lykosis-nextjs .'
 
-    - run: 'docker tag lykosis-admin-nextjs:latest localhost:5000/lykosis-admin-nextjs:latest'
+    - run: 'docker tag lykosis-nextjs:latest localhost:5000/lykosis-nextjs:latest'
 
     - run: 'kubectl port-forward service/registry-service 5000:5000 &'
 
-    - run: 'docker push localhost:5000/lykosis-admin-nextjs:latest'
+    - run: 'docker push localhost:5000/lykosis-nextjs:latest'
 
-    - run: 'kubectl rollout restart deployment lykosis-admin-nextjs-app'
+    - run: 'kubectl rollout restart deployment lykosis-nextjs-app'
