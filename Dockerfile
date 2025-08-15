@@ -12,8 +12,7 @@ WORKDIR /app
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 # RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm i --frozen-lockfile
-RUN npm i
-
+RUN npm install 
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
@@ -26,10 +25,7 @@ COPY . .
 # ENV NEXT_TELEMETRY_DISABLED 1
 
 ENV NEXT_PUBLIC_CDN_URL https://cdn.lykosis.com
-ENV NEXT_PUBLIC_PRODUCTION_URL https://dev-nextjs.lykosis.com
-ENV NEXT_PUBLIC_DELETE_USER_SECRET NDJFNPSDIUFHQ9UWFNPUIDSJFN1289NDSMFPOJASDNJAD9ĞPOKFS
-ENV NEXT_PUBLIC_CREATE_ADMIN_SECRET ahsDSUOHFSDUI1SDdljfhqıwufhıou912ue3epr823urjpsfhğ82fhnupwdhjnsa
-ENV NEXT_PUBLIC_CHANGE_ADMIN_SECRET ASJJHD1EIOHDFISDHUFUPUIADıodjdsafhqwuşfdj<sns9IAFOŞASDKNVXZKLJOPQW
+ENV NEXT_PUBLIC_URL https://lykosis.com
 
 RUN npm run build
 
@@ -58,7 +54,6 @@ RUN chown nextjs:nodejs .next
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=deps /app/node_modules ./node_modules
-RUN echo is there packagejson && ls package.json && sleep 10
 COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
 COPY --from=builder --chown=nextjs:nodejs /app/package-lock.json ./package-lock.json
 
