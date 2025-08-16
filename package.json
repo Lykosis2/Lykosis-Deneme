@@ -8,12 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest"
-  },
   "dependencies": {
   "@prisma/client": "^4.15.0",
   "jsonwebtoken": "^9.0.0",
   "qrcode.react": "^3.1.0"
-},
     "@auth/sequelize-adapter": "^1.0.0",
     "@prisma/client": "^4.15.0",
     "@radix-ui/colors": "^0.1.8",
