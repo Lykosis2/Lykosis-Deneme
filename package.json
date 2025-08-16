@@ -35,7 +35,5 @@
     "formidable": "^3.5.1",
     "formik": "^2.4.3",
     "qrcode.react": "^3.1.0"
-    // ... diğer TÜM paketlerin de bu bloğun içinde olmalı ...
   }
-  // (varsa) "devDependencies": { ... } bundan sonra gelir
 }
