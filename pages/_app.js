@@ -1,7 +1,7 @@
 import { SessionProvider } from 'next-auth/react'
 import { CartContextProvider } from '@/components/Cart/CartContextProvider'
-import { NavbarTextContextProvider } from '@/components/NavbarProvider'
-import AgacDataSharer from '@/components/layout/AgacDataSharer'
+import { NavbarTextContextProvider } from '../components/NavbarProvider'
+import AgacDataSharer from '../components/layout/AgacDataSharer'
 import 'styles/globals.css'
 import Head from 'next/head'
 
