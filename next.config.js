@@ -5,11 +5,11 @@ const path = require('path');
 const nextConfig = {
   output: 'standalone',
   reactStrictMode: false,
-  // (varsa kendi mevcut ayarların burada kalsın)
+  // ... varsa diğer ayarların
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      '@': path.resolve(__dirname), // <-- ALIAS: @ = proje kökü
+      '@': path.resolve(__dirname), // <-- @ = proje kökü
     };
     return config;
   },
