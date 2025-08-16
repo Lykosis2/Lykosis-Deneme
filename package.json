@@ -40,6 +40,7 @@
     "iyzipay": "^2.0.48",
     "js-sha512": "^0.8.0",
     "jsonwebtoken": "^9.0.0",
+    "qrcode.react": "^3.1.0"
     "leaflet": "^1.9.3",
     "leaflet.markercluster": "^1.5.3",
     "minio": "^7.1.3",
