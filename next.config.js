@@ -3,31 +3,15 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
   reactStrictMode: false,
-  // ... varsa diğer ayarların
+  output: 'standalone',
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      '@': path.resolve(__dirname), // <-- @ = proje kökü
+      '@': path.resolve(__dirname), // @ = proje kökü
     };
     return config;
   },
 };
-// next.config.js
-const path = require('path');
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'standalone',
-  reactStrictMode: false,
-  // ... (varsa kendi ayarların)
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...(config.resolve.alias || {}),
-      '@': path.resolve(__dirname), // <-- @ = proje kökü
-    };
-    return config;
-  },
-};
 module.exports = nextConfig;
