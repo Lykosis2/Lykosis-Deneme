@@ -1,14 +1,14 @@
 {
-  "name": "frontend-lykosis-2"
-  "version": "0.1.0"
+  "name": "frontend-lykosis-2",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
+  "scripts":
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest"
-  "dependencies": {
+  "dependencies":
   "@prisma/client": "^4.15.0",
   "jsonwebtoken": "^9.0.0",
   "qrcode.react": "^3.1.0"
@@ -81,7 +81,7 @@
     "vitest": "^0.34.6",
     "yup": "^1.2.0",
     "zod": "^3.22.4"
-  "devDependencies": {
+  "devDependencies": 
     "@antfu/eslint-config": "^0.40.3",
     "@babel/core": "^7.23.5",
     "@babel/preset-env": "^7.23.5",
