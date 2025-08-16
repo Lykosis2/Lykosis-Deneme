@@ -30,4 +30,4 @@ const nextConfig = {
     return config;
   },
 };
-module
+module.exports = nextConfig;
