@@ -1,5 +1,5 @@
 import { SessionProvider } from 'next-auth/react'
-import { CartContextProvider } from '@/components/Cart/CartContextProvider'
+import { CartContextProvider } from '../components/Cart/CartContextProvider'
 import { NavbarTextContextProvider } from '../components/NavbarProvider'
 import AgacDataSharer from '../components/layout/AgacDataSharer'
 import 'styles/globals.css'
